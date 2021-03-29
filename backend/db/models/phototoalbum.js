@@ -11,16 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   PhotoToAlbum.associate = function(models) {
-    PhotoToAlbum.belongsToMany(model.Album, {
-      through: 'PhotoToAlbums',
-      otherKey: 'photoId',
-      foreignKey: 'albumId'
-    });
-    PhotoToAlbum.belongsToMany(model.Photo, {
-      through: 'PhotoToAlbums',
-      otherKey: 'albumId',
-      foreignKey: 'photoId'
-    });
+    // PhotoToAlbum.belongsToMany(models.Album, {
+    //   through: 'PhotoToAlbums',
+    //   otherKey: 'photoId',
+    //   foreignKey: 'albumId'
+    // });
+
+  };
   return PhotoToAlbum;
-};
 }

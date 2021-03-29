@@ -1,6 +1,7 @@
 'use strict';
 const { Validator } = require('sequelize');
 const bcrypt = require('bcryptjs');
+const { User, Album } = require('../../db/models');
 
 
 
@@ -75,6 +76,7 @@ module.exports = (sequelize, DataTypes) => {
   User.login = async function ({ credential, password }) {
     const { Op } = require('sequelize');
     const user = await User.scope('loginUser').findOne({
+      
       where: {
         [Op.or]: {
           username: credential,

@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Album } = require('../../db/models');
 
 const router = express.Router();
 
@@ -41,9 +41,12 @@ router.post(
         }
 
         await setTokenCookie(res, user);
-
+         const albumId = await Album.findOne({
+            where: user,
+         
+        })
         return res.json({
-            user,
+            user, albumId
         });
     }),
 );

@@ -6,7 +6,7 @@ const REMOVE_USER = 'session/removeUser';
 const setUser = (user) => {
     return {
         type: SET_USER,
-        payload: user,
+        payload: user
     };
 };
 
@@ -24,12 +24,15 @@ export const restoreUser = () => async dispatch => {
 };
 
 export const login = (user) => async (dispatch) => {
-    const { credential, password } = user;
+    const { credential, password, myAlbum } = user;
     const response = await csrfFetch('/api/session', {
         method: 'POST',
         body: JSON.stringify({
             credential,
             password,
+            myAlbum
+        
+            
         }),
     });
     const data = await response.json();
@@ -45,6 +48,7 @@ export const demoLogin = () => async (dispatch) => {
         body: JSON.stringify({
             credential: "Demo-lition",
             password: "password",
+            myAlbum: 1
         }),
     });
     const data = await response.json();

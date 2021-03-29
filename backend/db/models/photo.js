@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    albumId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    // albumId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
     photoURL: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -17,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
   Photo.associate = function(models) {
     Photo.hasMany(models.Comment, { foreignKey: 'photoId' });
     Photo.belongsToMany(models.Album, {
-      through: 'PhotoToAlbums',
-      otherKey: 'photoId',
-      foreignKey: 'albumId'
+      through: 'PhotoToAlbum',
+      otherKey: 'albumId',
+      foreignKey: 'photoId'
     });
   };
   return Photo;

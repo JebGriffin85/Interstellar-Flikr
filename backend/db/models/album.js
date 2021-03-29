@@ -9,17 +9,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    photoId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    // photoId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
   }, {});
   Album.associate = function(models) {
     Album.belongsTo(models.User, { foreignKey: 'userId' });
     Album.belongsToMany(models.Photo, {
-      through: 'PhotoToAlbums',
-      otherKey: 'albumId',
-      foreignKey: 'photoId'
+      through: 'PhotoToAlbum',
+      otherKey: 'photoId',
+      foreignKey: 'albumId'
     });
   };
   return Album;
