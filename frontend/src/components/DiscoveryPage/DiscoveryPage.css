@@ -1,0 +1,12 @@
+
+
+
+.img-container{
+    display: flex;
+}
+
+.images{
+    display: flex;
+    max-width: 200px;
+    padding: 5px;
+}

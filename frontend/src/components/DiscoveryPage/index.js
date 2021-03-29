@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { getPhotos } from '../../store/home';
+import './DiscoveryPage.css';
 
 function DiscoveryPage () {
     const photos = useSelector((state) => state.photo.photo)
@@ -13,9 +12,9 @@ function DiscoveryPage () {
     return (
         <div>
         <h1>hi</h1>
-        <div>
+        <div className='img-container'>
             {/* {photos.photos.forEach((photo => console.log(photo.photoURL)))} */}
-            {photos?.photos.map((photo) => <img key={photo.id} src={`https://${photo.photoURL}`} ></img>)}
+            {photos?.photos.map((photo) => <img className='images' key={photo.id} src={`https://${photo.photoURL}`} ></img>)}
         </div>
         </div>
     )

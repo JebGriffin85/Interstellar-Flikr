@@ -1,4 +1,10 @@
 .nav-container {
- display: flex;   
+ display: flexbox;
+ align-items: center;  
  color: red;
+ font: bolder;
+color:white;
+padding: 5px;
+
 }
+
