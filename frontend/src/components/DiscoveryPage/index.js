@@ -6,11 +6,7 @@ import './DiscoveryPage.css';
 
 function DiscoveryPage () {
     const photos = useSelector((state) => state.photo.photo)
-    // function handleClick (event, id) {
-    //     console.log(event.target, id)
-    // onClick = {(event) => handleClick(event, photo.id) this was in the img tag
-// }
-    // }
+ 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getPhotos())
