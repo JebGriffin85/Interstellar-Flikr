@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Album } = require('../../db/models');
 
 const router = express.Router();
 
@@ -34,11 +34,13 @@ router.post(
     asyncHandler(async (req, res) => {
         const { email, password, username } = req.body;
         const user = await User.signup({ email, username, password });
-
+        await Album.create({userId: user.id})
         await setTokenCookie(res, user);
-
+        const userAndAlbum = await User.findByPk(user.id, {
+            include: [Album]
+        })
         return res.json({
-            user,
+            userAndAlbum
         });
     }),
 );

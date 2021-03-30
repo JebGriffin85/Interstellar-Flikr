@@ -41,12 +41,12 @@ router.post(
         }
 
         await setTokenCookie(res, user);
-         const albumId = await Album.findOne({
-            where: user,
+         const userAndAlbum = await User.findByPk(user.id, {
+            include: [Album]
          
         })
         return res.json({
-            user, albumId
+            userAndAlbum
         });
     }),
 );
@@ -65,11 +65,15 @@ router.delete(
 router.get(
     '/',
     restoreUser,
-    (req, res) => {
+    async (req, res) => {
         const { user } = req;
         if (user) {
+            const userAndAlbum = await User.findByPk(user.id, {
+                include: [Album]
+            })
             return res.json({
-                user: user.toSafeObject()
+                // user: user.toSafeObject()
+                userAndAlbum
             });
         } else return res.json({});
     }

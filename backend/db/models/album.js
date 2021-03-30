@@ -2,8 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Album = sequelize.define('Album', {
     title: {
-      type: DataTypes.STRING(30),
-      allowNull: false
+      type: DataTypes.STRING(30)
     },
     userId: {
       type: DataTypes.INTEGER,
