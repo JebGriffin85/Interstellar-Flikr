@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
@@ -8,6 +8,9 @@ function ProfileButton({ user }) {
     const history = useHistory()
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+
+    const currentAlbum = useSelector((state) => state?.session?.user?.Album?.id)
+
 
     const openMenu = () => {
         if (showMenu) return;
@@ -41,7 +44,7 @@ function ProfileButton({ user }) {
             {showMenu && (
                 <ul className="profile-dropdown">
                     <span>Hi there {user.username}</span>
-                    <NavLink to="/album/:id" >See my Album</NavLink>
+                    <NavLink to={`/myAlbum/${currentAlbum}`} >See my Album</NavLink>
                     <span>
                         <button onClick={logout}>Log Out</button>
                     </span>

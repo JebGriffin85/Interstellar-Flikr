@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Discovery from "./components/DiscoveryPage";
 import SinglePhoto from "./components/SinglePhoto";
+import MyAlbum from "./components/MyAlbum";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
           <Route exact path='/discovery'>
           <Discovery/>
           </Route>
-
+          <Route path={`/myAlbum/:id`}>
+            <MyAlbum />
+          </Route>
           <Route path={`/photo/:id`}>
             <SinglePhoto />
           </Route>

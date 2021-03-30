@@ -9,7 +9,7 @@ function SinglePhoto () {
     const { id } = useParams();
     const photos = useSelector((state) => state.photo.photo)
     const currentPhoto = photos?.photos[id - 1].photoURL
-    const currentAlbum = useSelector((state) => state.session.user.Album.id)
+    const currentAlbum = useSelector((state) => state?.session?.user?.Album?.id)
 
     const history = useHistory();
     const goBack = () => {
