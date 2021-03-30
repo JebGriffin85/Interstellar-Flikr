@@ -20,4 +20,16 @@ router.post('/',
     })
 )
 
+router.get('/:id',
+asyncHandler(async (req, res, next) => {
+    
+    const album = await PhotoToAlbum.findAll({
+        where: {
+            albumId: req.params.id
+        }
+    })
+    return res.json(album)
+})
+)
+
 module.exports = router;
