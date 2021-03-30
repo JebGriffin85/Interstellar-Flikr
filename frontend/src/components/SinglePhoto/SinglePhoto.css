@@ -1,0 +1,8 @@
+.single-image{
+    max-width: 800px;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+}
