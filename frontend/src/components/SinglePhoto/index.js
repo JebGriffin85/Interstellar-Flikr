@@ -13,7 +13,7 @@ function SinglePhoto () {
 
     const history = useHistory();
     const goBack = () => {
-        history.push('/discovery')
+        history.goBack()
     }
 
 const addToAlbum = async () => {
