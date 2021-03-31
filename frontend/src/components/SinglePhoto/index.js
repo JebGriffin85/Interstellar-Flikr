@@ -42,10 +42,10 @@ const deletePhoto = () => {
     return (
         <div>
 
-            <button  onClick={addToAlbum}>Add to My Album</button>
-            <button onClick={deletePhoto}>Delete from My Album</button>
             <button onClick={goBack}>Go Back</button>
         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
+            <button  onClick={addToAlbum}>Add to My Album</button>
+            <button onClick={deletePhoto}>Delete from My Album</button>
         
         </div>
 

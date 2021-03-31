@@ -12,9 +12,7 @@ const albumPhotos = useSelector((state) => state?.album?.album?.Photos)
 const dispatch = useDispatch();
 
 
-//  useEffect(() => {
-//     dispatch(getPhotos())
-//  }, [dispatch])
+
 
 useEffect(() => {
 
@@ -24,7 +22,12 @@ useEffect(() => {
 
     return (
         <div>Yo its my album
-            {albumPhotos?.map((photo) => <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}`} alt=""></img>  </Link>)}
+            {albumPhotos?.map((photo) =>
+                
+             <Link to={`/photo/${photo.id}`} key={photo.id}>
+             <img className='images' key={photo.id} src={`https://${photo.photoURL}`} alt="" >
+              
+                 </img> </Link>  )}
 
         </div>
     )
