@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getPhotos } from '../../store/home';
 import { csrfFetch } from '../../store/csrf';
 import './SinglePhoto.css'
+import { deleteAlbumPhoto } from '../../store/album';
 
 function SinglePhoto () {
     const { id } = useParams();
@@ -17,9 +18,7 @@ function SinglePhoto () {
     }
 
 const addToAlbum = async () => {
-
     const photoId = photos.photos[id - 1].id
-
     const response = await csrfFetch('/api/myAlbum', {
         method: 'POST',
         body: JSON.stringify({
@@ -30,6 +29,10 @@ const addToAlbum = async () => {
     return response;
 }
 
+const deletePhoto = () => {
+    dispatch(deleteAlbumPhoto(currentAlbum, id))
+    history.goBack()
+}
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -38,9 +41,11 @@ const addToAlbum = async () => {
 
     return (
         <div>
+
             <button  onClick={addToAlbum}>Add to My Album</button>
+            <button onClick={deletePhoto}>Delete from My Album</button>
             <button onClick={goBack}>Go Back</button>
-        <img className='single-image' src={`https://${currentPhoto}`}></img>
+        <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
         
         </div>
 

@@ -44,4 +44,21 @@ router.get('/:id',
     })
 )
 
+
+
+router.delete('/:albumId/photo/:photoId',
+asyncHandler(async (req, res, next) => {
+
+   const albumId = Number(req.params.albumId)
+   const photoId = Number(req.params.photoId)
+   const photo = await PhotoToAlbum.findOne({
+       where: {
+           albumId, photoId
+       }
+   })
+   photo.destroy()
+   return res.json({message: 'successssss'})
+})
+)
+
 module.exports = router;

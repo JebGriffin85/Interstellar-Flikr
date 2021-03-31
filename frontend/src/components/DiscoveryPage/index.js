@@ -16,7 +16,7 @@ function DiscoveryPage () {
         <h1>hi</h1>
         <div className='img-container'>
             {/* {photos.photos.forEach((photo => console.log(photo.photoURL)))} */}
-            {photos?.photos.map((photo) =>  <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}`} ></img>  </Link>)}
+            {photos?.photos.map((photo) =>  <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}` } alt="" ></img>  </Link>)}
         </div>
         </div>
     )

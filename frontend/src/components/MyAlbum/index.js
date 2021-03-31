@@ -17,14 +17,14 @@ const dispatch = useDispatch();
 //  }, [dispatch])
 
 useEffect(() => {
+
     dispatch(getAlbum(id))
 }, [dispatch])
 
 
     return (
         <div>Yo its my album
-        {console.log(albumPhotos)}
-            {albumPhotos?.map((photo) => <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}`} ></img>  </Link>)}
+            {albumPhotos?.map((photo) => <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}`} alt=""></img>  </Link>)}
 
         </div>
     )

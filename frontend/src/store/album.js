@@ -1,6 +1,7 @@
-
+import { csrfFetch } from './csrf';
 
 const GET_ALBUM = 'myAlbum/getAlbum'
+
 
 const setAlbum = (photos) => {
     return {
@@ -9,14 +10,24 @@ const setAlbum = (photos) => {
     };
 };
 
-export const getAlbum = (id) => async (dispatch) => {
 
+
+export const getAlbum = (id) => async (dispatch) => {
     const response = await fetch(`/api/myAlbum/${id}`,
     )
     const album = await response.json()
     dispatch(setAlbum(album))
-
 }
+
+export const deleteAlbumPhoto = (albumId, photoId) => async (dispatch) => {
+    await csrfFetch(`/api/myAlbum/${albumId}/photo/${photoId}`, {
+        method: 'DELETE'
+    })
+    dispatch(getAlbum(albumId))
+    return 
+}
+
+
 
 const initialState = { album: null }
 
@@ -27,7 +38,6 @@ const albumReducer = (state = initialState, action) => {
             newState = Object.assign({}, state);
             newState.album = action.payload;
             return newState;
-
         default:
             return state;
     }
