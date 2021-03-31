@@ -13,10 +13,13 @@ function DiscoveryPage () {
     }, [dispatch])
     return (
         <div>
-        <h1>hi</h1>
+        <h2 className='h2'>Click on an image to enlarge or add it to your album</h2>
         <div className='img-container'>
-            {/* {photos.photos.forEach((photo => console.log(photo.photoURL)))} */}
-            {photos?.photos.map((photo) =>  <Link to={`/photo/${photo.id}`} key={photo.id}>  <img className='images' key={photo.id} src={`https://${photo.photoURL}` } alt="" ></img>  </Link>)}
+
+            {photos?.photos.map((photo) =>  
+            <Link to={`/photo/${photo.id}`} key={photo.id}>  
+            <img className='images' key={photo.id} src={`https://${photo.photoURL}` } alt="" >
+            </img>  </Link>)}
         </div>
         </div>
     )

@@ -37,7 +37,7 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button onClick={openMenu}>
+            <button onClick={openMenu} className='menu-button'>
                 <i className="fas fa-space-shuttle" />
                 My Profile
             </button>
