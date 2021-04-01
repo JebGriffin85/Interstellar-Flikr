@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation";
 import Discovery from "./components/DiscoveryPage";
 import SinglePhoto from "./components/SinglePhoto";
 import MyAlbum from "./components/MyAlbum";
+// import ReactPlayer from 'react-player'
+// import video from '../src/images/video.MOV'
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -21,6 +23,11 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <h1>
+          
+            </h1>
+          </Route>
           <Route exact path='/discovery'>
           <Discovery/>
           </Route>

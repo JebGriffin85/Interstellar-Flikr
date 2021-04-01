@@ -13,20 +13,26 @@ const photoId = photos?.photos[id - 1].id
 const userId = useSelector((state) => state?.session?.user?.id)
 const dispatch = useDispatch()
 
-const [comment, setComment] = useState('')
-
+let [comment, setComment] = useState('')
+const reset = () => {
+    setComment('')
+}
 
 const submitComment = (event) => {
   event.preventDefault();
-
+  event.target.reset()
   const payload = {
 
       comment,
       photoId,
       userId
-  }
-//   console.log(payload)
+      
+    }
+    
+    
+  reset()
   dispatch(addComment(payload))
+ 
 }
 
 
@@ -34,13 +40,14 @@ const submitComment = (event) => {
 return (
 
 
-    <form onSubmit={submitComment}>
+    <form onSubmit={submitComment} id="form">
         <label>Add a Comment
         <input
         onChange={event => setComment(event.target.value)}
         type="text"
         name="comment"
         value={comment}
+     
         >
         
         </input>
