@@ -5,7 +5,8 @@ import { getPhotos } from '../../store/home';
 import { csrfFetch } from '../../store/csrf';
 import './SinglePhoto.css'
 import { deleteAlbumPhoto } from '../../store/album';
-import { getComments } from '../../store/comments'
+import { getComments, deleteComment } from '../../store/comments'
+
 import CommentForm from '../CommentForm'
 
 function SinglePhoto () {
@@ -14,9 +15,10 @@ function SinglePhoto () {
     const currentPhoto = photos?.photos[id - 1].photoURL
     const currentAlbum = useSelector((state) => state?.session?.user?.Album?.id)
     const commentsList = useSelector((state) => state?.comments.comments)
+    const test = useSelector((state) => state.comments)
     const session = useSelector((state) => state.session.user)
     const [comments, setComments] = useState(commentsList)
-
+    const dispatch = useDispatch();
     const history = useHistory();
     const goBack = () => {
         history.goBack()
@@ -41,12 +43,18 @@ const deletePhoto = () => {
 
 useEffect(() => {
     setComments(commentsList)
+}, [test])
+
+useEffect(() => {
+    setComments(commentsList)
 },[commentsList])
-    const dispatch = useDispatch();
+  
+    
     useEffect(() => {
         dispatch(getComments(id))
         dispatch(getPhotos())
     }, [dispatch])
+
     if (session !== null){
     return (
         <div>
@@ -59,29 +67,26 @@ useEffect(() => {
             <h4>User Comments</h4>
 
             {comments?.comments?.map((comment) => 
-            <p key={comment.id} >{comment.body}</p>
+                <p key={comment.id} >{comment.body}
+                 {comment.userId === session.id ? 
+                 <button onClick={() => dispatch(deleteComment(comment.id)) }>delete</button> : null}</p>
             )}
-         {console.log(session)}
+         {/* {console.log(session)} */}
            <CommentForm />
         </div>
 
     )
             } else {
                 return (
-
                     <div>
-
                         <button onClick={goBack}>Go Back</button>
                         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
                         <button onClick={addToAlbum}>Add to My Album</button>
                         <button onClick={deletePhoto}>Delete from My Album</button>
-
                         <h4>User Comments</h4>
-
                         {comments?.comments?.map((comment) =>
                             <p key={comment.id} >{comment.body}</p>
                         )}
-           
                     </div>
                 )
             }
