@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User, Album, Photo } = require('../../db/models');
+const { User, Album, Photo, Comment } = require('../../db/models');
 
 const router = express.Router();
 
@@ -14,6 +14,39 @@ asyncHandler (async (req, res, next) => {
     return res.json({photos})
 })
 
+)
+
+router.get('/:id', 
+asyncHandler (async (req, res, next) => {
+    const photoId = parseInt(req.params.id, 10)
+
+    const comments = await Comment.findAll({
+        where: { photoId }
+    })
+    
+    return res.json({comments})
+
+})
+)
+
+router.post('/',
+asyncHandler (async (req, res, next) => {
+
+    const userId = req.body.userId
+    const photoId = req.body.photoId
+    const body = req.body.comment
+    const newComment = await Comment.create({
+        body,
+        userId,
+        photoId
+    })
+ 
+    const comments = await Comment.findAll({
+        where: {photoId}
+    })
+    return res.json({comments})
+
+})
 )
 
 module.exports = router;

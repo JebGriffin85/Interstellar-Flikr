@@ -78,7 +78,7 @@ module.exports = {
         },
         {
           name: 'Hubble Images Jupiter in Support of the New Horizons Flyby',
-          photoURL: ' imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/14843/print.jpg'
+          photoURL: 'imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/14843/print.jpg'
         },
         {
           name: 'Jupiters Northern Aurora',

@@ -24,7 +24,7 @@ useEffect(() => {
         <div>Yo its my album
             {albumPhotos?.map((photo) =>
                 
-             <Link to={`/photo/${photo.id}`} key={photo.id}>
+             <Link to={`/photos/${photo.id}`} key={photo.id}>
              <img className='images' key={photo.id} src={`https://${photo.photoURL}`} alt="" >
               
                  </img> </Link>  )}

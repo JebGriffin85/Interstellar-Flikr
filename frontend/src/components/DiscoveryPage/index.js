@@ -13,11 +13,11 @@ function DiscoveryPage () {
     }, [dispatch])
     return (
         <div>
-        <h2 className='h2'>Click on an image to enlarge or add it to your album</h2>
+        <h3 className='h2'>Click on an image to enlarge or add it to your album</h3>
         <div className='img-container'>
 
             {photos?.photos.map((photo) =>  
-            <Link to={`/photo/${photo.id}`} key={photo.id}>  
+            <Link to={`/photos/${photo.id}`} key={photo.id}>  
             <img className='images' key={photo.id} src={`https://${photo.photoURL}` } alt="" >
             </img>  </Link>)}
         </div>

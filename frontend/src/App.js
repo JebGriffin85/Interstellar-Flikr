@@ -27,7 +27,7 @@ function App() {
           <Route path={`/myAlbum/:id`}>
             <MyAlbum />
           </Route>
-          <Route path={`/photo/:id`}>
+          <Route path={`/photos/:id`}>
             <SinglePhoto />
           </Route>
           <Route path="/login">
