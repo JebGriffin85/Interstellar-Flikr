@@ -7,8 +7,8 @@ import Navigation from "./components/Navigation";
 import Discovery from "./components/DiscoveryPage";
 import SinglePhoto from "./components/SinglePhoto";
 import MyAlbum from "./components/MyAlbum";
-// import ReactPlayer from 'react-player'
-// import video from '../src/images/video.MOV'
+import ReactPlayer from 'react-player'
+import video from '../src/images/video.MOV'
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <h1>
-          
+            <ReactPlayer url={video} controls={true}/>
             </h1>
           </Route>
           <Route exact path='/discovery'>
