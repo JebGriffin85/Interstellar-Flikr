@@ -8,7 +8,7 @@ function MyAlbum () {
 const { id } = useParams()
 // const photos = useSelector((state) => state.photo.photo)
 const albumPhotos = useSelector((state) => state?.album?.album?.Photos)
-
+const user = useSelector((state) => state.session.user.username)
 const dispatch = useDispatch();
 
 
@@ -21,7 +21,11 @@ useEffect(() => {
 
 
     return (
-        <div>Yo its my album
+        <>
+        <p className='h2'>
+                Welcome {user} to your album
+        </p>
+        <div className='img-container'>
             {albumPhotos?.map((photo) =>
                 
              <Link to={`/photos/${photo.id}`} key={photo.id}>
@@ -30,6 +34,7 @@ useEffect(() => {
                  </img> </Link>  )}
 
         </div>
+        </>
     )
 }
 

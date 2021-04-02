@@ -24,7 +24,10 @@ function SinglePhoto () {
         history.goBack()
     }
 
+
+
 const addToAlbum = async () => {
+    document.getElementById("add-button").style.display="none"
     const photoId = photos.photos[id - 1].id
     const response = await csrfFetch('/api/myAlbum', {
         method: 'POST',
@@ -37,6 +40,7 @@ const addToAlbum = async () => {
 }
 
 const deletePhoto = () => {
+    document.getElementById("delete-button").style.display = "none"
     dispatch(deleteAlbumPhoto(currentAlbum, id))
     history.goBack()
 }
@@ -61,8 +65,8 @@ useEffect(() => {
 
             <button onClick={goBack}>Go Back</button>
         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
-            <button  onClick={addToAlbum}>Add to My Album</button>
-            <button onClick={deletePhoto}>Delete from My Album</button>
+            <button id='add-button' onClick={addToAlbum}  >Add to My Album</button>
+            <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button>
            
             <h4>User Comments</h4>
 
@@ -81,8 +85,8 @@ useEffect(() => {
                     <div>
                         <button onClick={goBack}>Go Back</button>
                         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
-                        <button onClick={addToAlbum}>Add to My Album</button>
-                        <button onClick={deletePhoto}>Delete from My Album</button>
+                        {/* <button onClick={addToAlbum}>Add to My Album</button>
+                        <button onClick={deletePhoto}>Delete from My Album</button> */}
                         <h4>User Comments</h4>
                         {comments?.comments?.map((comment) =>
                             <p key={comment.id} >{comment.body}</p>

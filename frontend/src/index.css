@@ -14,3 +14,24 @@ margin:0;
 
 background-color: lightslategray;
 }
+.video{
+    position: fixed;
+    padding-left: 35px;
+}
+
+.nav{
+ 
+}
+
+.main-container{
+padding-top: 25px;
+padding-left: 10px;
+color: lightgray;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+position:fixed;
+}
+
+.welcome{
+    padding-left: 12px;
+   
+}

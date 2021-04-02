@@ -1,11 +1,12 @@
 .nav-container {
- display: flexbox;
- align-items: center;  
- color: red;
+
+
+
  font: bolder;
 color:white;
 padding: 5px;
-justify-content: center;
+
 text-decoration: none;
+
 }
 

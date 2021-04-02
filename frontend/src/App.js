@@ -20,13 +20,19 @@ function App() {
 
   return (
     <>
+      <span className='nav'>
+
       <Navigation isLoaded={isLoaded} />
+      </span>
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <h1>
-            <ReactPlayer url={video} controls={true}/>
-            </h1>
+            <div className='main-container'>
+              <p className='welcome'>Welcome to Interstellar Flikr</p>
+            <div className='main-component'>
+            <ReactPlayer className='video' url={video} controls={true}/>
+            </div>
+            </div>
           </Route>
           <Route exact path='/discovery'>
           <Discovery/>
