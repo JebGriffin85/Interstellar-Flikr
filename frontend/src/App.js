@@ -8,7 +8,7 @@ import Discovery from "./components/DiscoveryPage";
 import SinglePhoto from "./components/SinglePhoto";
 import MyAlbum from "./components/MyAlbum";
 import ReactPlayer from 'react-player'
-import video from '../src/images/video.MOV'
+import video from '../src/images/video.mp4'
 import * as sessionActions from "./store/session";
 
 function App() {
