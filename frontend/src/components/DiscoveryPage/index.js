@@ -13,7 +13,7 @@ function DiscoveryPage () {
     }, [dispatch])
     return (
         <div>
-        <h3 className='h2'>Click on an image to enlarge or add it to your album</h3>
+        <h4 className='h2'>Click on an image to enlarge or add it to your album</h4>
         <div className='img-container'>
 
             {photos?.photos.map((photo) =>  

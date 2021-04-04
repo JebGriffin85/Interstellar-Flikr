@@ -63,14 +63,15 @@ useEffect(() => {
     return (
         <div className='container'>
 
-            <button onClick={goBack}>Go Back</button>
-            <p>{photos?.photos[id - 1].name}</p>
+            <button className='go-back' onClick={goBack}>Go Back</button>
+            <p className='title' >{photos?.photos[id - 1].name}</p>
         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
+            <div className='button-container'>
             <button id='add-button' onClick={addToAlbum}  >Add to My Album</button>
             <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button>
-           
-            <h4>User Comments</h4>
-
+           </div>
+            <div className='comment-container'>
+                <h4 className='comments'>User Comments</h4>
             {comments?.comments?.map((comment) => 
                 <p key={comment.id} >{comment.body}
                  {comment.userId === session.id ? 
@@ -78,20 +79,24 @@ useEffect(() => {
             )}
          {/* {console.log(session)} */}
            <CommentForm />
+            </div>
         </div>
 
     )
             } else {
                 return (
-                    <div>
-                        <button onClick={goBack}>Go Back</button>
+                    <div className='container'>
+                        <button className='go-back' onClick={goBack}>Go Back</button>
+                        <p className='title' >{photos?.photos[id - 1].name}</p>
                         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
                         {/* <button onClick={addToAlbum}>Add to My Album</button>
                         <button onClick={deletePhoto}>Delete from My Album</button> */}
-                        <h4>User Comments</h4>
+                        <div className='comment-container'>
+                        <h4 className='comments'>User Comments</h4>
                         {comments?.comments?.map((comment) =>
                             <p key={comment.id} >{comment.body}</p>
                         )}
+                        </div>
                     </div>
                 )
             }

@@ -9,17 +9,25 @@
 
 .images{
     display: flex;
-    max-width: 180px;
-    max-height: 90%;
-    padding: 5px;
+    margin: 5px;
     border-radius: 20px;
     object-fit: fill;
+    float: left;
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
+
+}
+.images:hover{
+       box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.591);
 }
 
 .h2{
- 
-    color: lightgray;
+
+color: lightgray;
 padding-left: 20px;
+font-style: italic;
+font-size: 15px;
 }
 *{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

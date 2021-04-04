@@ -7,3 +7,54 @@
     margin-left: 40px;
     border-radius: 10px;
 }
+
+.title{
+    color:lightgray;
+    padding-left: 20px;
+}
+
+.go-back{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-left: 10px;
+    color: lightgray;
+}
+
+button{
+        display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-left: 10px;
+    color: black;
+    font-size: bolder;
+    font-size: 15px;
+    
+}
+.add-button{
+margin-left: 15px;
+color: white;
+}
+.delete-button{
+
+}
+.button-container{
+    margin-top: 10px;
+    display: flex;
+    margin-left: 32px;
+    position: absolute;
+    color: white;
+}
+
+.comment-container{
+
+  padding-top: 15px;
+  padding-left: 10px;
+
+}
+.comments{
+    color: black;
+
+}
