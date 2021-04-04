@@ -61,9 +61,10 @@ useEffect(() => {
 
     if (session !== null){
     return (
-        <div>
+        <div className='container'>
 
             <button onClick={goBack}>Go Back</button>
+            <p>{photos?.photos[id - 1].name}</p>
         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
             <button id='add-button' onClick={addToAlbum}  >Add to My Album</button>
             <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button>
