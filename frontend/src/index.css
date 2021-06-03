@@ -15,8 +15,10 @@ margin:0;
 background-color: lightslategray;
 }
 .video{
-    position: fixed;
-    padding-left: 35px;
+    /* position: fixed; */
+    /* padding-left: 35px; */
+    margin: 0 auto;
+    border: 5px outset rgb(167, 202, 255, 0.5);
 }
 
 .nav{
