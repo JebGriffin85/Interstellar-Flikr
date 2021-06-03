@@ -4,7 +4,7 @@ background: url("../src/images/wallhaven-lmr7dy.jpg");
 background-position: stretch;
 
 background-repeat: no-repeat;
-display: flex;
+/* display: flex; */
 background-size: cover;
 background-attachment: fixed;
 
@@ -14,26 +14,25 @@ margin:0;
 
 background-color: lightslategray;
 }
-.video{
-    /* position: fixed; */
-    /* padding-left: 35px; */
-    margin: 0 auto;
-    border: 5px outset rgb(167, 202, 255, 0.5);
-}
 
-.nav{
- 
+
+.video{
+    border: 5px outset rgb(167, 202, 255, 0.5);
+    border-radius: 4px;
 }
 
 .main-container{
-padding-top: 25px;
-padding-left: 10px;
-color: lightgray;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-position:fixed;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    padding-top: 25px;
+    padding-left: 10px;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .welcome{
     padding-left: 12px;
-   
+    font-size: 22px;
 }

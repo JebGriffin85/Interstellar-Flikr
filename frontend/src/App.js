@@ -30,7 +30,7 @@ function App() {
             <div className='main-container'>
               <p className='welcome'>Welcome to Interstellar Flikr</p>
             <div className='main-component'>
-            <ReactPlayer className='video' url={video} controls={true}/>
+            <ReactPlayer className='video' url={video} controls={true} playing={true}/>
             </div>
             </div>
           </Route>
