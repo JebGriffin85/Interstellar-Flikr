@@ -14,7 +14,7 @@ function DiscoveryPage () {
     }, [dispatch]);
     
     return (
-        <>
+        <>                  
         
         <div className='outer-container'>
         <h4 className='h2'>Click on an image to enlarge or add it to your album</h4>
