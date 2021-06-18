@@ -7,6 +7,7 @@
   grid-template-columns: repeat(4, 220px);
   grid-row-gap: 10px;
   justify-content: center;
+  padding-top: 25px;
 }
 
 .images{
@@ -54,13 +55,16 @@ span{
 
 .current-page{
     font-size: 20px;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     color: lightgray;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     cursor: pointer;
+    border-bottom: 2px solid black;
     
 }
 
 .focus{
-    background-color: red;
+    font-weight: bold;
+    color: red;
+    font-size: 24px;
 }

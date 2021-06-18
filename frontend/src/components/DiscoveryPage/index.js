@@ -9,16 +9,11 @@ function DiscoveryPage () {
     const photos = useSelector((state) => state.photo.photo?.photos);
     const [currentPage, setCurrentPage] = useState(photos?.slice(0, 12));
     const [pageNum, setPageNum] = useLocalStorage('page', 1);
-    const spanElement = useRef()
-    
 
     const dispatch = useDispatch();
     useEffect(() => {
          dispatch(getPhotos()) 
-        if (pageNum === 1) {
-            // spanElement.current.style.backgroundColor = 'red'
-            // spanElement.current.focus()
-            setCurrentPage(photos?.slice(0, 12))};
+        if (pageNum === 1) setCurrentPage(photos?.slice(0, 12));
         if (pageNum === 2) setCurrentPage(photos?.slice(12, 24));
         if (pageNum === 3) setCurrentPage(photos?.slice(24, 36));
         if (pageNum === 4) setCurrentPage(photos?.slice(48, 57));
@@ -31,7 +26,7 @@ function DiscoveryPage () {
         <div className='outer-container'>
         <h4 className='h2'>Click on an image to enlarge or add it to your album</h4>
         <div className='current-page'>
-        <span ref={spanElement} className={pageNum === 1 ? 'focus' : null} onClick={() => {
+        <span className={pageNum === 1 ? 'focus' : null} onClick={() => {
             setCurrentPage(photos.slice(0, 12))
             setPageNum(1)
             }}
@@ -39,20 +34,19 @@ function DiscoveryPage () {
         <span className={pageNum === 2 ? 'focus' : null} onClick={() => {
             setCurrentPage(photos.slice(12, 24))
             setPageNum(2)
-
         }}
             >2</span>
-        <span onClick={() => {
+        <span className={pageNum === 3 ? 'focus' : null} onClick={() => {
             setCurrentPage(photos.slice(24, 36))
             setPageNum(3)
         }}
             >3</span>
-        <span onClick={() => {
+        <span className={pageNum === 4 ? 'focus' : null} onClick={() => {
             setCurrentPage(photos.slice(36, 48))
             setPageNum(4)
         }}
             >4</span>
-        <span onClick={() => {
+        <span className={pageNum === 5 ? 'focus' : null} onClick={() => {
             setCurrentPage(photos.slice(48, 57))
             setPageNum(5)
         }}

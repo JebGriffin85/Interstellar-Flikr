@@ -10,11 +10,13 @@ import MyAlbum from "./components/MyAlbum";
 import ReactPlayer from 'react-player'
 import video from '../src/images/video.mp4'
 import * as sessionActions from "./store/session";
+import { getPhotos } from './store/home';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
+    dispatch(getPhotos())
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
