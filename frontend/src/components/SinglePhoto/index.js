@@ -11,8 +11,8 @@ import CommentForm from '../CommentForm'
 
 function SinglePhoto () {
     const { id } = useParams();
-    const photos = useSelector((state) => state.photo.photo)
-    const currentPhoto = photos?.photos[id - 1].photoURL
+    const photos = useSelector((state) => state.photo?.photo)
+    const currentPhoto = photos?.photos[id - 1]?.photoURL
     const currentAlbum = useSelector((state) => state?.session?.user?.Album?.id)
     const commentsList = useSelector((state) => state?.comments.comments)
     const test = useSelector((state) => state.comments)
@@ -28,7 +28,7 @@ function SinglePhoto () {
 
 const addToAlbum = async () => {
     document.getElementById("add-button").style.display="none"
-    const photoId = photos.photos[id - 1].id
+    const photoId = photos?.photos[id - 1]?.id
     const response = await csrfFetch('/api/myAlbum', {
         method: 'POST',
         body: JSON.stringify({
