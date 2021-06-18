@@ -60,3 +60,7 @@ span{
     cursor: pointer;
     
 }
+
+.focus{
+    background-color: red;
+}
