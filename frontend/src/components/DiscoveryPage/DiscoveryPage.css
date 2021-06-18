@@ -49,6 +49,7 @@ font-size: 15px;
 
 span{
     padding-right: 10px;
+    
 }
 
 .current-page{
@@ -57,4 +58,5 @@ span{
     color: lightgray;
     text-decoration: underline;
     cursor: pointer;
+    
 }

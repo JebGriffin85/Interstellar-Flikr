@@ -6,18 +6,21 @@ import useLocalStorage from './useLocalStorage';
 import './DiscoveryPage.css';
 
 function DiscoveryPage () {
-    const photos = useSelector((state) => state.photo.photo?.photos)
-    const [currentPage, setCurrentPage] = useState(photos?.slice(0, 12))
-    const [pageNum, setPageNum] = useLocalStorage('page', 1)
+    const photos = useSelector((state) => state.photo.photo?.photos);
+    const [currentPage, setCurrentPage] = useState(photos?.slice(0, 12));
+    const [pageNum, setPageNum] = useLocalStorage('page', 1);
+    
 
     const dispatch = useDispatch();
     useEffect(() => {
-        if (pageNum === 1) setCurrentPage(photos.slice(0, 12));
-        if (pageNum === 2) setCurrentPage(photos.slice(12, 24));
-        if (pageNum === 3) setCurrentPage(photos.slice(24, 36));
-        if (pageNum === 4) setCurrentPage(photos.slice(48, 57));
-        if (pageNum === 5) setCurrentPage(photos.slice(48, 57));
-        dispatch(getPhotos()) 
+         dispatch(getPhotos()) 
+        if (pageNum === 1) {
+
+            setCurrentPage(photos?.slice(0, 12))};
+        if (pageNum === 2) setCurrentPage(photos?.slice(12, 24));
+        if (pageNum === 3) setCurrentPage(photos?.slice(24, 36));
+        if (pageNum === 4) setCurrentPage(photos?.slice(48, 57));
+        if (pageNum === 5) setCurrentPage(photos?.slice(48, 57));
     }, [dispatch]);
     
     return (
@@ -26,7 +29,7 @@ function DiscoveryPage () {
         <div className='outer-container'>
         <h4 className='h2'>Click on an image to enlarge or add it to your album</h4>
         <div className='current-page'>
-        <span onClick={() => {
+        <span className='span1' onClick={() => {
             setCurrentPage(photos.slice(0, 12))
             setPageNum(1)
             }}
