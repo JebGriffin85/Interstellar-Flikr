@@ -5,7 +5,10 @@ padding: 3px 0 0 10px;
 text-decoration: none;
 display: flex;
 flex-direction: row;
-cursor: pointer;
+/* cursor: pointer; */
 
 }
 
+#demo{
+    cursor: pointer;
+}

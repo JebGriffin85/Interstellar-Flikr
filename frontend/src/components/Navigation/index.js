@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
                 <NavLink className='nav-container' to="/discovery">Discover</NavLink>
                 <NavLink className='nav-container' to="/login">Log In</NavLink>
                 <NavLink className='nav-container' to="/signup">Sign Up</NavLink>
-                <div className='nav-container'  onClick={handleClick}>Demo Login</div>
+                <div id='demo' className='nav-container'  onClick={handleClick}>Demo Login</div>
             </span>
             
         );
