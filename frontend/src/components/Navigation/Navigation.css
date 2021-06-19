@@ -12,3 +12,52 @@ flex-direction: row;
 #demo{
     cursor: pointer;
 }
+
+#home:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#discover:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#album:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#logout:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#login:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#signup:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
+#demo:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    font-weight: bold;
+    text-decoration:underline;
+}

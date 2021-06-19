@@ -25,20 +25,20 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <div  className='nav-container'>
-            <NavLink className='nav-container' exact to="/">Home</NavLink>
-            <NavLink className='nav-container' to="/discovery">Discover</NavLink>
-            <NavLink className='nav-container' to={`/myAlbum/${currentAlbum}`}>My Album</NavLink>
-            <NavLink className='nav-container' to='/' onClick={logout}>Logout</NavLink>
+            <NavLink id='home' className='nav-container' exact to="/">Home</NavLink>
+            <NavLink id='discover' className='nav-container' to="/discovery">Discover</NavLink>
+            <NavLink id='album' className='nav-container' to={`/myAlbum/${currentAlbum}`}>My Album</NavLink>
+            <NavLink id='logout' className='nav-container' to='/' onClick={logout}>Logout</NavLink>
 
             </div>
         );
     } else {
         sessionLinks = (
             <span className='nav-container'>
-                <NavLink className='nav-container' exact to="/">Home</NavLink>
-                <NavLink className='nav-container' to="/discovery">Discover</NavLink>
-                <NavLink className='nav-container' to="/login">Log In</NavLink>
-                <NavLink className='nav-container' to="/signup">Sign Up</NavLink>
+                <NavLink id='home' className='nav-container' exact to="/">Home</NavLink>
+                <NavLink id='discover' className='nav-container' to="/discovery">Discover</NavLink>
+                <NavLink id='login' className='nav-container' to="/login">Log In</NavLink>
+                <NavLink id='signup' className='nav-container' to="/signup">Sign Up</NavLink>
                 <div id='demo' className='nav-container'  onClick={handleClick}>Demo Login</div>
             </span>
             
