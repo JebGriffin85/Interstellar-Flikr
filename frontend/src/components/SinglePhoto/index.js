@@ -61,27 +61,30 @@ useEffect(() => {
 
     if (session !== null){
     return (
+        <>
+            <button className='go-back' onClick={goBack}>Go Back</button>
         <div className='container'>
 
-            <button className='go-back' onClick={goBack}>Go Back</button>
+            <div className='pic-and-button'>
             <p className='title' >{photos?.photos[id - 1].name}</p>
         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
             <div className='button-container'>
             <button id='add-button' onClick={addToAlbum}  >Add to My Album</button>
             <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button>
            </div>
+           </div>
             <div className='comment-container'>
-                <h4 className='comments'>User Comments</h4>
+                <p className='comments'>Comments</p>
             {comments?.comments?.map((comment) => 
                 <p key={comment.id} >{comment.body}
                  {comment.userId === session.id ? 
-                 <button onClick={() => dispatch(deleteComment(comment.id)) }>delete</button> : null}</p>
+                 <button className='comment-delete' onClick={() => dispatch(deleteComment(comment.id)) }>delete</button> : null}</p>
             )}
          {/* {console.log(session)} */}
            <CommentForm />
             </div>
         </div>
-
+                    </>
     )
             } else {
                 return (

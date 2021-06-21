@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addComment } from '../../store/comments';
-
+import './comment.css';
 
 function CommentForm () {
 const { id } = useParams();
@@ -55,7 +55,7 @@ return (
         </label>
         
 
-        <button type="submit"  >Comment</button>
+        <button className='comment-button' type="submit"  >Comment</button>
     </form>
 )
 

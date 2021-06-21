@@ -1,3 +1,9 @@
+.container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
 .single-image{
     max-width: 600px;
     max-height: 500px;
@@ -23,12 +29,12 @@
 }
 
 button{
-        display: flex;
+    display: flex;
     align-items: center;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: rgba(255, 16, 16, 0.4);
     margin-left: 10px;
-    color: black;
+    /* color: black; */
     font-size: bolder;
     font-size: 15px;
     
@@ -49,12 +55,27 @@ color: white;
 }
 
 .comment-container{
-
+  display: flex;
+  flex-direction: column;
   padding-top: 15px;
   padding-left: 10px;
-
+  color: lightgray;
 }
 .comments{
-    color: black;
+    color: lightgray;
+    font-size: 20px;
 
 }
+
+#add-button{
+  font-weight: bold;
+}
+
+#delete-button{
+    font-weight: bold;
+}
+
+.comment-delete{
+    color: lightgray;
+}
+
