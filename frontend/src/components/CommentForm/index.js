@@ -40,7 +40,7 @@ const submitComment = (event) => {
 return (
 
 
-    <form onSubmit={submitComment} id="form">
+    <form className='form-container' onSubmit={submitComment} id="form">
         <label>Add a Comment
         <input
         onChange={event => setComment(event.target.value)}

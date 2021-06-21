@@ -1,3 +1,7 @@
 .comment-button{
     color: lightgray;
 }
+
+.form-container{
+    display: flex;
+}
