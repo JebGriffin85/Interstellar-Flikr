@@ -6,6 +6,7 @@ import { csrfFetch } from '../../store/csrf';
 import './SinglePhoto.css'
 import { deleteAlbumPhoto } from '../../store/album';
 import { getComments, deleteComment } from '../../store/comments'
+import { getAlbum } from '../../store/album';
 
 import CommentForm from '../CommentForm'
 
@@ -13,10 +14,11 @@ function SinglePhoto() {
     const { id } = useParams();
     const photos = useSelector((state) => state.photo?.photo)
     const currentPhoto = photos?.photos[id - 1]?.photoURL
-    const currentAlbum = useSelector((state) => state?.session?.user?.Album?.id)
+    const currentAlbum = useSelector((state) => state.session.user?.Album?.id)
     const commentsList = useSelector((state) => state?.comments.comments)
-    const test = useSelector((state) => state.comments)
+    const albumPhotos = useSelector((state) => state?.album.album?.Photos)
     const session = useSelector((state) => state.session.user)
+    const userId = useSelector((state) => state.session.user.id)
     const [comments, setComments] = useState(commentsList)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,7 +26,7 @@ function SinglePhoto() {
         history.goBack()
     }
 
-
+    let allPhotoIdsInAlbum = albumPhotos?.map((photo) => photo.id)
 
     const addToAlbum = async () => {
         document.getElementById("add-button").style.display = "none"
@@ -46,8 +48,8 @@ function SinglePhoto() {
     }
 
     useEffect(() => {
-        setComments(commentsList)
-    }, [test])
+        if (session) dispatch(getAlbum(userId))
+    }, [dispatch])
 
     useEffect(() => {
         setComments(commentsList)
@@ -69,8 +71,9 @@ function SinglePhoto() {
                         <p className='title' >{photos?.photos[id - 1].name}</p>
                         <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
                         <div className='button-container'>
-                            <button id='add-button' onClick={addToAlbum}  >Add to My Album</button>
-                            <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button>
+                            {allPhotoIdsInAlbum?.includes(Number(id)) ? null : <button id='add-button' onClick={addToAlbum}>Add to My Album</button>}
+                            {allPhotoIdsInAlbum?.includes(Number(id)) ? <button id='delete-button' onClick={deletePhoto}>Delete from My Album</button> : null }
+                            
                         </div>
                     </div>
                     <div className='comment-container'>
@@ -87,11 +90,14 @@ function SinglePhoto() {
         )
     } else {
         return (
-            <div className='container'>
+            <>
                 <button className='go-back' onClick={goBack}>Go Back</button>
+            <div className='container'>
+              <div>
                 <p className='title' >{photos?.photos[id - 1].name}</p>
+    
                 <img className='single-image' src={`https://${currentPhoto}`} alt=""></img>
-
+                    </div>
                 <div className='comment-container'>
                     <h4 className='comments'>User Comments</h4>
                     {comments?.comments?.map((comment) =>
@@ -99,6 +105,7 @@ function SinglePhoto() {
                     )}
                 </div>
             </div>
+            </>
         )
     }
 }

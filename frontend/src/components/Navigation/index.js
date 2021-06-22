@@ -3,6 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import { getAlbum } from '../../store/album';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -11,6 +12,7 @@ function Navigation({ isLoaded }) {
     const dispatch = useDispatch();
 
     const handleClick = () => {
+        dispatch(getAlbum(1))
          dispatch(sessionActions.demoLogin())
         
     };
