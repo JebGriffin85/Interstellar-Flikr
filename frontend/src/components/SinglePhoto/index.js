@@ -25,7 +25,7 @@ function SinglePhoto() {
     const goBack = () => {
         history.goBack()
     }
-
+    console.log(session)
     let allPhotoIdsInAlbum = albumPhotos?.map((photo) => photo.id)
 
     const addToAlbum = async () => {
@@ -66,7 +66,7 @@ function SinglePhoto() {
         dispatch(getComments(id))
     }
 
-    if (session !== null) {
+    if (session !== undefined) {
         return (
             <>
                 <button className='go-back' onClick={goBack}>Go Back</button>
@@ -83,9 +83,10 @@ function SinglePhoto() {
                     </div>
                     <div className='comment-container'>
                         <p className='comments'>Comments</p>
+                        
                         {comments?.comments?.map((comment) =>
-                            <p className='comment-body' key={comment.id} >{comment.body}
-                                {comment.userId === session.id ?
+                            <p className='comment-body' key={comment?.id} >{comment?.body}
+                                {comment.userId === session?.id ?
                                     <button className='comment-delete' onClick={() => deleteComm(comment.id)}>delete</button> : null}</p>
                         )}
                         <CommentForm />
