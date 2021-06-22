@@ -25,7 +25,7 @@ function SinglePhoto() {
     const goBack = () => {
         history.goBack()
     }
-    console.log(session)
+
     let allPhotoIdsInAlbum = albumPhotos?.map((photo) => photo.id)
 
     const addToAlbum = async () => {
@@ -66,7 +66,7 @@ function SinglePhoto() {
         dispatch(getComments(id))
     }
 
-    if (session !== undefined) {
+    if (session !== undefined || session !== null) {
         return (
             <>
                 <button className='go-back' onClick={goBack}>Go Back</button>
