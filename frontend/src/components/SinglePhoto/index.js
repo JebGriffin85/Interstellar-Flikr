@@ -38,13 +38,13 @@ function SinglePhoto() {
                 currentAlbum
             })
         })
-        return response;
+        return dispatch(getAlbum(userId))
     }
 
     const deletePhoto = () => {
         document.getElementById("delete-button").style.display = "none"
         dispatch(deleteAlbumPhoto(currentAlbum, id))
-        history.goBack()
+        return dispatch(getAlbum(userId))
     }
 
     useEffect(() => {
@@ -60,6 +60,11 @@ function SinglePhoto() {
         dispatch(getComments(id))
         dispatch(getPhotos())
     }, [dispatch])
+
+    async function deleteComm (commentId) {
+        await dispatch(deleteComment(commentId))
+        dispatch(getComments(id))
+    }
 
     if (session !== null) {
         return (
@@ -81,7 +86,7 @@ function SinglePhoto() {
                         {comments?.comments?.map((comment) =>
                             <p className='comment-body' key={comment.id} >{comment.body}
                                 {comment.userId === session.id ?
-                                    <button className='comment-delete' onClick={() => dispatch(deleteComment(comment.id))}>delete</button> : null}</p>
+                                    <button className='comment-delete' onClick={() => deleteComm(comment.id)}>delete</button> : null}</p>
                         )}
                         <CommentForm />
                     </div>
