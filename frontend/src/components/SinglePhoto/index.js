@@ -15,10 +15,10 @@ function SinglePhoto() {
     const photos = useSelector((state) => state.photo?.photo)
     const currentPhoto = photos?.photos[id - 1]?.photoURL
     const currentAlbum = useSelector((state) => state.session.user?.Album?.id)
-    const commentsList = useSelector((state) => state?.comments.comments)
+    const commentsList = useSelector((state) => state?.comments?.comments)
     const albumPhotos = useSelector((state) => state?.album.album?.Photos)
     const session = useSelector((state) => state.session.user)
-    const userId = useSelector((state) => state.session.user.id)
+    const userId = useSelector((state) => state.session.user?.id)
     const [comments, setComments] = useState(commentsList)
     const dispatch = useDispatch();
     const history = useHistory();

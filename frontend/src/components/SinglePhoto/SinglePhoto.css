@@ -61,6 +61,8 @@ color: white;
   padding-top: 15px;
   padding-left: 10px;
   color: white;
+  justify-content: center;
+  align-items: flex-start;
 
 }
 .comments{
