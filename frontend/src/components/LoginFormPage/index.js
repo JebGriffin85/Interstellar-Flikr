@@ -10,7 +10,7 @@ function LoginFormPage() {
     const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([' ']);
 
     if (sessionUser) return (
         <Redirect to="/" />
@@ -27,10 +27,11 @@ function LoginFormPage() {
     }
 
     return (
+        <div className='form-container'>
         <form onSubmit={handleSubmit} className='form'>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
+            <p>
+                {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+            </p>
             <label>
                 Username or Email
         <input className="inputs"
@@ -51,6 +52,7 @@ function LoginFormPage() {
             </label>
             <button className='form-button' type="submit">Log In</button>
         </form>
+        </div>
     );
 }
 
