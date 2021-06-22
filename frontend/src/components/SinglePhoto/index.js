@@ -66,7 +66,7 @@ function SinglePhoto() {
         dispatch(getComments(id))
     }
 
-    if (session !== undefined || session !== null) {
+    if (session) {
         return (
             <>
                 <button className='go-back' onClick={goBack}>Go Back</button>
